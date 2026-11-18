@@ -97,6 +97,8 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .who-text { min-width: 0; }
 .name { font-family: var(--f-display); font-weight: 700; font-size: 28px; line-height: 1.2; margin: 0; }
 .brand { color: var(--muted); font-size: 15px; font-weight: 500; }
+.line .seg { display: inline; }
+@media (min-width: 601px) { .line .seg { display: block; } }
 .brand b { color: var(--ink); font-weight: 600; }
 .brand .dot { margin: 0 6px; opacity: .6; }
 .role-badge { display: inline-block; font-size: 13px; font-weight: 600; color: var(--accent); background: var(--accent-soft); padding: 2px 10px; border-radius: 999px; margin-left: 6px; vertical-align: 3px; font-family: var(--f-body); }
@@ -251,7 +253,7 @@ const PEOPLE = [
 {
   id:"eunhee", job:"디저트 카페", facil:true, name:"최은희", short:"은희", brand:"최니사장 · 비넨토", c:1,
   work:"디저트 카페 '비넨토' 운영 · 1·2기에 이어 3기 퍼실리테이터",
-  line:"판매자 계정 말고, ‘사람 최은희’의 이야기를 시작해요",
+  line:"판매자 계정 말고,|‘사람 최은희’의 이야기를 시작해요",
   sns:[],
   s:{
     intro:`저는 1기와 2기 프리미엄 클래스 퍼실리테이터로 함께했습니다. 현재는 '비넨토'라는 디저트 카페를 운영하고 있습니다.`,
@@ -279,7 +281,7 @@ const PEOPLE = [
 {
   id:"eunkyung", job:"복숭아 농가", facil:true, name:"신은경", short:"은경", brand:"피치랩 · 복자네 복숭아", c:4,
   work:"경북 김천 복숭아 농가의 '피치랩' 대표 · 제철 농산물 판매 10년 차",
-  line:"내가 덜 바빠도 잘 돌아가는 복숭아 가게 만들기",
+  line:"내가 덜 바빠도|잘 돌아가는 복숭아 가게 만들기",
   sns:[],
   s:{
     intro:`안녕하세요^^ 매년 여름 복숭아를 소개하고 있는 피치랩 신은경입니다🍑
@@ -388,7 +390,7 @@ const PEOPLE = [
 {
   id:"mina", job:"IT 프로그래머 · 무인카페", name:"권미나", short:"미나", brand:"무인카페 카페인24", c:6,
   work:"IT 프로그래머 · 3개월 차 무인카페 '카페인24' 사장 · 삼남매 워킹맘",
-  line:"하고 싶은 건 많은데, 이제 ‘나의 색깔’을 찾을 차례",
+  line:"하고 싶은 건 많은데,|이제 ‘나의 색깔’을 찾을 차례",
   sns:[ig("cafein24.pungmuprugio")],
   s:{
     intro:`권미나 / 개발자 & 무인카페 초보 사장`,
@@ -446,7 +448,7 @@ const PEOPLE = [
 {
   id:"hyesook", job:"재봉틀 공방", name:"안혜숙", short:"혜숙", brand:"낭만바늘", c:3,
   work:"분당 재봉틀공방 9년 차 · 전직 모바일 개발자",
-  line:"일은 더 늘리지 않고, 매출은 더 넓게",
+  line:"일은 더 늘리지 않고,|매출은 더 넓게",
   sns:[ig("romantic_needle")],
   s:{
     intro:`안혜숙 / 재봉틀공방 운영`,
@@ -465,7 +467,7 @@ const PEOPLE = [
 {
   id:"eunjin", job:"디저트 납품", name:"문은진", short:"은진", brand:"은진팩토리", c:4,
   work:"2014년부터 마포에서 디저트 납품 · 떡에서 시작해 일본 유학으로 디저트까지",
-  line:"넘쳐나는 비슷한 가게들 사이에서 ‘나만의 이야기’로",
+  line:"넘쳐나는 비슷한 가게들 사이에서|‘나만의 이야기’로",
   sns:[ig("eunjinfactory"), {label:"블로그", url:"https://blog.naver.com/ejdessert"}],
   s:{
     intro:`안녕하세요 문은진입니다. 2014년부터 마포에서 디저트 납품을 하고 있습니다. 인스타랑 네이버 블로그 운영 중이고요.`,
@@ -483,7 +485,7 @@ const PEOPLE = [
 {
   id:"kyungok", job:"프랑스자수 공방", name:"김경옥", short:"옥쌤", brand:"자수꽃방옥수수", c:5,
   work:"부천 프랑스자수 공방 15년 차 · 자수 패키지·가방·도안·실크스크린",
-  line:"2기 때 귀를 열었으니, 3기엔 실행을",
+  line:"2기 때 귀를 열었으니,|3기엔 실행을",
   sns:[ig("oksusoo_needlework")],
   s:{
     intro:`안녕하세요, 현재 부천에서 프랑스자수 공방 자수꽃방옥수수를 운영하는 옥쌤이에요. 나이는 54세네요~
@@ -568,7 +570,7 @@ const PEOPLE = [
 {
   id:"hyunjung", job:"카페 · 원두", name:"김현정", short:"현정", brand:"범표원두", c:2,
   work:"21년 차 카페 운영 · 원두 브랜드 '범표원두' · 2026년부터 프랜차이즈 사업 시작",
-  line:"범표원두의 김현정과 사람 김현정, 둘 다 단단하게",
+  line:"범표원두의 김현정과|사람 김현정, 둘 다 단단하게",
   sns:[ig("bumpyobeans"), ig("hyunjung_sajang")],
   s:{
     intro:`김현정 / 21년 차 카페 운영
@@ -682,6 +684,7 @@ const SEC = [
 const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const paras = t => t.trim().split(/\n\s*\n/).map(p => "<p>" + esc(p).replace(/\n/g,"<br>") + "</p>").join("");
 const avatar = p => `<div class="avatar" aria-hidden="true" style="${p.waiting ? "" : `background:var(--a${p.c}-bg);color:var(--a${p.c}-fg)`}">${esc(p.short)}</div>`;
+const lineHTML = t => String(t).split("|").map(x => `<span class="seg">${esc(x.trim())}</span>`).join(" ");
 const sub = p => `<div class="brand">${p.job ? `<span class="job">${esc(p.job)}</span><span class="dot">·</span>` : ""}<b>${esc(p.brand)}</b></div>`;
 const chips = p => (p.sns||[]).map(x => `<a class="chip" href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.label)}</a>`).join("");
 
@@ -703,7 +706,7 @@ function card(p) {
         <h3 class="name">${esc(p.name)}${p.facil ? '<span class="role-badge">퍼실</span>' : ""}</h3>
         ${sub(p)}</div></div>
       <p class="work">${esc(p.work)}</p>
-      <p class="line">${esc(p.line)}</p>
+      <p class="line">${lineHTML(p.line)}</p>
       <div class="card-foot">
         <div class="sns">${chips(p)}</div>
         <button class="open" data-open="${p.id}" aria-label="${esc(p.name)}님 이야기 전체 보기">이야기 읽기 →</button>
@@ -748,7 +751,7 @@ function openSheet(id) {
       ${sub(p)}</div></div>
     <p class="work">${esc(p.work)}</p>
     ${p.sns && p.sns.length ? `<div class="sns">${chips(p)}</div>` : ""}
-    <p class="line">${esc(p.line)}</p>
+    <p class="line">${lineHTML(p.line)}</p>
     ${pre}${secs}${post}${extra}
     <div class="sheet-nav">
       <button data-open="${prev ? prev.id : ""}" ${prev ? "" : "hidden"}><small>← 이전</small>${prev ? esc(prev.name) : ""}</button>
