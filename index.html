@@ -110,6 +110,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .card, .goal { position: relative; }
 .card .sicons, .goal .sicons { position: absolute; top: 22px; right: 22px; }
 .card:has(.sicons) .name, .goal:has(.sicons) .name { padding-right: 84px; }
+.card:has(.sicon:nth-child(3)) .name, .goal:has(.sicon:nth-child(3)) .name { padding-right: 126px; }
 .sicon:hover, .sicon:focus-visible { color: #fff; border-color: transparent; }
 .sicon.ig:hover, .sicon.ig:focus-visible { background: #D6336C; }
 .sicon.blog:hover, .sicon.blog:focus-visible { background: #03A94D; }
@@ -306,7 +307,7 @@ const PEOPLE = [
   id:"eunhee", job:"디저트 카페", facil:true, name:"최은희", short:"은희", brand:"최니사장 · 비넨토", c:1,
   work:"디저트 카페 '비넨토' 운영 · 1·2기에 이어 3기 퍼실리테이터",
   line:"판매자 계정 말고,|‘사람 최은희’의 이야기를 시작해요",
-  sns:[],
+  sns:[ig("choini_sajang")],
   s:{
     intro:`저는 1기와 2기 프리미엄 클래스 퍼실리테이터로 함께했습니다. 현재는 '비넨토'라는 디저트 카페를 운영하고 있습니다.`,
     story:`1·2기 당시에는 '꽃빙'이라는 디저트 카페를 운영하고 있었습니다.
@@ -334,7 +335,7 @@ const PEOPLE = [
   id:"eunkyung", job:"복숭아 농가", facil:true, name:"신은경", short:"은경", brand:"피치랩 · 복자네 복숭아", c:4,
   work:"경북 김천 복숭아 농가의 '피치랩' 대표 · 제철 농산물 판매 10년 차",
   line:"내가 덜 바빠도|잘 돌아가는 복숭아 가게 만들기",
-  sns:[],
+  sns:[ig("_peach_lab")],
   s:{
     intro:`안녕하세요^^ 매년 여름 복숭아를 소개하고 있는 피치랩 신은경입니다🍑
 
@@ -367,7 +368,7 @@ const PEOPLE = [
   id:"darae", job:"디자이너", name:"배다래", short:"다래", brand:"디자인돕다 · 믿고사는언니", c:2,
   work:"16년 차 디자이너 · 사장님들이 스스로 해낼 수 있게 돕는 '디자인돕다' 운영",
   line:"디자인돕다를 키우고, ‘믿고사는언니’로 새 실험을 시작해요",
-  sns:[ig("design.dopda"), ig("midgo.jeonju")],
+  sns:[ig("design.dopda"), ig("midgo.jeonju"), blog("darvv")],
   s:{
     intro:`안녕하세요! 프클 3기 여러분 🧡 전주에서 세 아이를 키우며 사장님들을 돕는 일을 하고 있는 배다래입니다. 반갑습니다! 😍
 
@@ -507,7 +508,7 @@ AI를 활용해서 인스타 생태계에 적응하며 다양한 콘텐츠를 �
   id:"jooyoung", job:"베이커리카페", name:"박주영", short:"주영", brand:"오마이샬롬", c:2,
   work:"천연발효종 베이커리카페 '오마이샬롬' 5년 차 · 9평 빵집에서 18평으로",
   line:"맛있는 빵만으로는 부족했던 5년, 이제 빵집을 제대로 알릴 차례",
-  sns:[ig("oh_my_shalom")],
+  sns:[ig("oh_my_shalom"), th("oh_my_shalom")],
   s:{
     intro:`“오마이샬롬”이라는 천연발효종으로 만든 베이커리와 함께 카페를 운영하고 있습니다.
 9평에서 시작한 빵집으로 현재 18평 베이커리카페로 확장하면서 베이커로서의 삶뿐만 아니라 운영에도 힘써보려 하고 있어요 :)`,
