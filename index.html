@@ -108,9 +108,10 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 }
 .sicon svg { width: 19px; height: 19px; }
 .card, .goal { position: relative; }
-.card .sicons, .goal .sicons { position: absolute; top: 22px; right: 22px; }
-.card:has(.sicons) .name, .goal:has(.sicons) .name { padding-right: 84px; }
-.card:has(.sicon:nth-child(3)) .name, .goal:has(.sicon:nth-child(3)) .name { padding-right: 126px; }
+.card .sicons.at-top, .goal .sicons.at-top { position: absolute; top: 22px; right: 22px; }
+.card:has(.sicons.at-top) .name, .goal:has(.sicons.at-top) .name { padding-right: 84px; }
+.card:has(.sicons.at-top .sicon:nth-child(3)) .name, .goal:has(.sicons.at-top .sicon:nth-child(3)) .name { padding-right: 126px; }
+
 .sicon:hover, .sicon:focus-visible { color: #fff; border-color: transparent; }
 .sicon.ig:hover, .sicon.ig:focus-visible { background: #D6336C; }
 .sicon.blog:hover, .sicon.blog:focus-visible { background: #03A94D; }
@@ -253,6 +254,14 @@ dialog.sheet::backdrop { background: rgba(14,20,17,.55); backdrop-filter: blur(3
   .sheet-nav button { max-width: 100%; flex: 1; }
 }
 @media (prefers-reduced-motion: reduce) { .card { transition: none; } .card:hover { transform: none; } }
+.sicons.at-foot { display: none; }
+@media (max-width: 600px) {
+  .sicons.at-top { display: none; }
+  .sicons.at-foot { display: flex; margin-left: auto; }
+  .card-foot { flex-wrap: nowrap; min-width: 0; }
+  .goal .open .nm { display: none; }
+  .card .name, .goal .name { padding-right: 0 !important; }
+}
 </style>
 
 <div class="wrap">
@@ -766,7 +775,7 @@ const ICON = {
   th: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.7 11.2c-.3-2.4-1.9-3.7-4.4-3.7-2 0-3.4.9-4 2.4m8.4 1.3c-1-.3-2.1-.4-3.2-.3-2.3.1-3.6 1.2-3.5 2.7.1 1.4 1.5 2.3 3.2 2.2 2.4-.1 3.6-1.8 3.5-5.9m0 0c2 .9 3 2.6 2.6 4.6-.6 2.8-3.2 4.5-6.6 4.5-4.4 0-7.2-3-7.2-8.1S7.9 3.7 12.3 3.7c3.4 0 5.7 1.6 6.6 4.4" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg>'
 };
 const acctText = x => x.type === "blog" ? "블로그 · " + x.label : x.label;
-const icons = p => (p.sns && p.sns.length) ? `<div class="sicons">${p.sns.map(x =>
+const icons = (p, pos = "top") => (p.sns && p.sns.length) ? `<div class="sicons at-${pos}">${p.sns.map(x =>
   `<a class="sicon ${x.type}" href="${esc(x.url)}" target="_blank" rel="noopener" aria-label="${SNS_NAME[x.type]} ${esc(acctText(x))}" title="${SNS_NAME[x.type]} ${esc(acctText(x))}">${ICON[x.type]}</a>`).join("")}</div>` : "";
 const handle = p => (p.sns && p.sns.length) ? `<div class="handle">${esc(acctText(p.sns[0]))}</div>` : "";
 const acctBtns = p => (p.sns || []).map(x =>
@@ -794,6 +803,7 @@ function card(p) {
       <p class="line">${lineHTML(p.line)}</p>
       <div class="card-foot">
         <button class="open" data-open="${p.id}" aria-label="${esc(p.name)}님 이야기 전체 보기">이야기 읽기 →</button>
+        ${icons(p, "foot")}
       </div>
     </article>`;
 }
@@ -809,7 +819,7 @@ document.getElementById("goals").innerHTML = ready.map(p => `
   <article class="goal">
     <div class="who">${avatar(p)}<div class="who-text"><h3 class="name">${esc(p.name)}</h3>${sub(p)}${handle(p)}</div>${icons(p)}</div>
     <ol class="goal-list">${(GOALS[p.id] || []).map(g => `<li>${esc(g)}</li>`).join("")}</ol>
-    <button class="open more" data-open="${p.id}">${esc(p.name)}님 이야기 전체 보기 →</button>
+    <div class="card-foot"><button class="open more" data-open="${p.id}"><span class="nm">${esc(p.name)}님 </span>이야기 전체 보기 →</button>${icons(p, "foot")}</div>
   </article>`).join("");
 
 /* sheet */
